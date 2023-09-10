@@ -532,7 +532,7 @@ names to which it refers are bound."
       (org-date-selected (:foreground ,aqua :inverse-video t))
       (org-document-info (:foreground ,aqua))
       (org-document-info-keyword (:foreground ,green))
-      (org-document-title (:weight bold :foreground ,orange :height 1.2))
+      (org-document-title (:weight bold :foreground ,orange :height 1.1))
       (org-done (:foreground ,green))
       (org-ellipsis (:foreground ,comment))
       (org-footnote (:foreground ,aqua))
@@ -571,7 +571,7 @@ names to which it refers are bound."
       (org-modern-time-active (:inherit org-modern-label :foreground ,yellow :inverse-video t))
       (org-modern-time-inactive (:inherit (org-modern-label org-modern-date-inactive)))
       (org-modern-todo (:inherit org-modern-label :foreground ,red :inverse-video t))
-      
+
       ;; Outline (built-in)
       (outline-1 (:inherit nil :foreground ,blue))
       (outline-2 (:inherit nil :foreground ,purple))
