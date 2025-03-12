@@ -73,7 +73,7 @@ executed."
               (foreground . "#e3dfcb")
               (comment . "#868087")
               (red . "#cc6666")
-              (orange . "#de935f")
+              (orange . "#f6c177")
               (yellow . "#b4637a")
               (green . "#b5bd68")
               (aqua . "#8abeb7")
