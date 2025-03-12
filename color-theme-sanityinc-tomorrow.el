@@ -66,32 +66,32 @@ executed."
   (sanityinc-tomorrow--interpolate background highlight 7 3))
 
 (defconst color-theme-sanityinc-tomorrow-colors
-  '((night . ((background . "#1d1f21")
-              (alt-background . "#22a224a427a7")
-              (current-line . "#282a2e")
-              (selection . "#373b41")
-              (foreground . "#c5c8c6")
-              (comment . "#969896")
+  '((night . ((background . "#1e2021")
+              (alt-background . "#27282e")
+              (current-line . "#26282e")
+              (selection . "#3c526e")
+              (foreground . "#e3dfcb")
+              (comment . "#868087")
               (red . "#cc6666")
               (orange . "#de935f")
-              (yellow . "#f0c674")
+              (yellow . "#b4637a")
               (green . "#b5bd68")
               (aqua . "#8abeb7")
               (blue . "#81a2be")
               (purple . "#b294bb")))
-    (day . ((background . "#ffffff")
-            (alt-background . "#f7f7f7f7f7f7")
-            (current-line . "#efefef")
-            (selection . "#d6d6d6")
-            (foreground . "#4d4d4c")
+    (day . ((background . "#faf4ed")
+            (alt-background . "#f8f0e7")
+            (current-line . "#f4ede8")
+            (selection . "#cecacd")
+            (foreground . "#34494a")
             (comment . "#8e908c")
-            (red . "#c82829")
-            (orange . "#f5871f")
-            (yellow . "#eab700")
-            (green . "#718c00")
-            (aqua . "#3e999f")
-            (blue . "#4271ae")
-            (purple . "#8959a8")))
+            (red . "#d7827e")
+            (orange . "#ea9d34")
+            (yellow . "#b4637a")
+            (green . "#6d8f89")
+            (aqua . "#56949f")
+            (blue . "#286983")
+            (purple . "#907aa9")))
     (eighties . ((background . "#2d2d2d")
                  (alt-background . "#333333333333")
                  (current-line . "#393939")
@@ -131,8 +131,6 @@ executed."
                (aqua . "#70c0b1")
                (blue . "#7aa6da")
                (purple . "#c397d8")))))
-
-
 
 (defmacro color-theme-sanityinc-tomorrow--with-colors (mode &rest body)
   "Execute `BODY' in a scope with variables bound to the various tomorrow colors.
@@ -218,7 +216,7 @@ names to which it refers are bound."
       (cursor (:background ,red))
       (fringe (:background ,low-contrast-bg :foreground ,comment))
       (linum (:background ,low-contrast-bg :foreground ,comment :italic nil :underline nil))
-      (line-number (:inherit default :background ,low-contrast-bg :foreground ,comment))
+      (line-number (:inherit default :background ,background :foreground ,comment))
       (line-number-current-line (:inherit line-number :foreground ,foreground :weight bold))
       (fill-column-indicator (:foreground ,contrast-bg :weight normal :slant normal
                                           :underline nil :overline nil :strike-through nil
@@ -226,8 +224,7 @@ names to which it refers are bound."
       (vertical-border (:foreground ,contrast-bg))
       (border (:background ,contrast-bg :foreground ,highlight))
       (highlight (:inverse-video nil :background ,highlight))
-      (mode-line (:foreground ,foreground :background ,contrast-bg :weight normal
-                              :box (:line-width 1 :color ,contrast-bg)))
+      (mode-line (:foreground ,foreground :background ,background :weight normal :box (:line-width 1 :color ,foreground)))
       (mode-line-buffer-id (:foreground ,purple :background unspecified))
       (mode-line-inactive (:inherit mode-line
                                     :foreground ,comment
@@ -590,8 +587,9 @@ names to which it refers are bound."
       (org-date-selected (:foreground ,aqua :inverse-video t))
       (org-document-info (:foreground ,aqua))
       (org-document-info-keyword (:foreground ,green))
-      (org-document-title (:weight bold :foreground ,orange :height 1.4))
+      (org-document-title (:weight bold :foreground ,orange))
       (org-done (:foreground ,green))
+      (org-drawer (:foreground ,comment))
       (org-ellipsis (:foreground ,comment))
       (org-footnote (:foreground ,aqua))
       (org-formula (:foreground ,red))
@@ -611,12 +609,23 @@ names to which it refers are bound."
       (org-scheduled (:foreground ,green))
       (org-scheduled-previously (:foreground ,aqua))
       (org-scheduled-today (:foreground ,green))
-      (org-special-keyword (:foreground ,orange))
+      (org-special-keyword (:inherit org-drawer))
       (org-table (:foreground ,purple))
       (org-time-grid (:foreground ,yellow))
       (org-todo (:foreground ,red))
       (org-upcoming-deadline (:foreground ,orange))
       (org-warning (:weight bold :foreground ,red))
+
+      ;; org-modern
+      (org-modern-date-active (:background ,highlight))
+      (org-modern-date-inactive (:background ,highlight :foreground ,contrast-bg))
+      ;; (org-modern-done ((,c :inherit org-modern-label :background ,bg-info :foreground ,info)))
+      ;; (org-modern-priority ((,c :inherit (org-modern-label org-priority) :background ,bg-dim)))
+      ;; (org-modern-statistics ((,c :inherit org-modern-label :background ,bg-dim)))
+      ;; (org-modern-tag ((,c :inherit (org-modern-label org-tag) :background ,bg-dim)))
+      ;; (org-modern-time-active ((,c :inherit (ef-themes-fixed-pitch org-modern-label) :background ,bg-active :foreground ,fg-dim)))
+      ;; (org-modern-time-inactive ((,c :inherit (org-modern-label org-modern-date-inactive))))
+      ;; (org-modern-todo ((,c :inherit org-modern-label :background ,bg-err :foreground ,err)))
 
       ;; Outline (built-in)
       (outline-1 (:inherit nil :foreground ,blue))
@@ -693,16 +702,12 @@ names to which it refers are bound."
       (vhdl-speedbar-subprogram-face (:foreground ,green))
 
       ;; tab-bar (built-in)
-      (tab-bar (:height 1.2 :foreground ,comment :background ,highlight))
-      (tab-bar-tab (:background ,contrast-bg
-                                :foreground ,purple
-                                :inverse-video nil
-                                :box (:line-width 1 :style released-button)))
-      (tab-bar-tab-inactive (:inherit tab-bar-tab
-                                      :background ,comment
-                                      :foreground ,highlight
-                                      :inverse-video t))
-
+      (tab-bar (:foreground ,comment :background ,highlight))
+      (tab-bar-tab-group-current (:inherit bold :background ,background :box (:line-width -2 :color ,background) :foreground ,highlight))
+      (tab-bar-tab-group-inactive (:background ,background :box (:line-width -2 :color ,background) :foreground ,highlight))
+      (tab-bar-tab (:inherit bold :box (:line-width -2 :color ,background) :background ,background :foreground ,foreground :underline (:style line :color ,foreground)))
+      (tab-bar-tab-inactive (:box (:line-width -2 :color ,background) :foreground ,comment :background ,background))
+      (tab-bar-tab-ungrouped (:inherit tab-bar-tab-inactive))
       ;; tab-line (built-in)
       (tab-line (:foreground ,comment :background ,highlight))
       (tab-line-close-highlight (:foreground ,red))
@@ -743,13 +748,13 @@ names to which it refers are bound."
 					   :inverse-video nil
 					   :box (:line-width 1 :style released-button)))
       (window-tool-bar-button-disabled (:inherit tab-line
-						 :foreground ,comment
-						 :inverse-video nil
-						 :box (:line-width 1 :style released-button)))
+					         :foreground ,comment
+					         :inverse-video nil
+					         :box (:line-width 1 :style released-button)))
       (window-tool-bar-button-hover (:background ,low-contrast-bg
-						 :foreground ,blue
-						 :inverse-video nil
-						 :box (:line-width 1 :style released-button)))
+					         :foreground ,blue
+					         :inverse-video nil
+					         :box (:line-width 1 :style released-button)))
 
       ;; ace-window
       (aw-background-face (:foreground ,contrast-bg))
@@ -1302,7 +1307,7 @@ names to which it refers are bound."
       (magit-diff-context (:foreground ,comment :extend t))
       (magit-diff-context-highlight (:foreground ,comment :background ,highlight :extend t))
       (magit-diff-file-heading (:foreground ,foreground :extend t))
-      (magit-diff-file-heading-highlight (:background ,contrast-bg :weight bold :extend t))
+      (magit-diff-file-heading-highlight (:background ,highlight :weight bold :extend t))
       (magit-diff-file-heading-selection (:foreground ,orange :background ,highlight :extend t))
       (magit-diff-hunk-heading (:foreground ,foreground :background ,contrast-bg :extend t))
       (magit-diff-hunk-heading-highlight (:background ,contrast-bg :extend t))
@@ -1405,9 +1410,6 @@ names to which it refers are bound."
       (mmm-code-submode-face (:background ,contrast-bg))
       (mmm-comment-submode-face (:inherit font-lock-comment-face))
       (mmm-output-submode-face (:background ,contrast-bg))
-
-      ;; mini-modeline
-      (mini-modeline-mode-line (:inherit mode-line :height 0.1 :box nil))
 
       ;; neotree
       (neo-banner-face (:foreground ,blue :weight bold))
@@ -1652,6 +1654,11 @@ names to which it refers are bound."
       (ztreep-header-face (:forground ,yellow :weight bold))
       (ztreep-leaf-face (:foreground ,aqua))
       (ztreep-node-face (:foreground ,foreground))
+
+      ;; telega
+      (telega-msg-heading (:background ,background))
+      (telega-msg-self-title (:foreground ,orange :weight bold))
+      (telega-root-heading (:foreground ,purple :background ,highlight :inherit bold))
       ))))
 
 (eval-and-compile
