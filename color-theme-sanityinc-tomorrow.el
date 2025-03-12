@@ -618,14 +618,14 @@ names to which it refers are bound."
 
       ;; org-modern
       (org-modern-date-active (:background ,highlight))
-      (org-modern-date-inactive (:background ,highlight :foreground ,contrast-bg))
-      ;; (org-modern-done ((,c :inherit org-modern-label :background ,bg-info :foreground ,info)))
-      ;; (org-modern-priority ((,c :inherit (org-modern-label org-priority) :background ,bg-dim)))
-      ;; (org-modern-statistics ((,c :inherit org-modern-label :background ,bg-dim)))
-      ;; (org-modern-tag ((,c :inherit (org-modern-label org-tag) :background ,bg-dim)))
-      ;; (org-modern-time-active ((,c :inherit (ef-themes-fixed-pitch org-modern-label) :background ,bg-active :foreground ,fg-dim)))
-      ;; (org-modern-time-inactive ((,c :inherit (org-modern-label org-modern-date-inactive))))
-      ;; (org-modern-todo ((,c :inherit org-modern-label :background ,bg-err :foreground ,err)))
+      (org-modern-date-inactive (:background ,highlight :foreground ,comment))
+      (org-modern-done (:inherit org-modern-label :background ,green :foreground ,foreground))
+      (org-modern-priority (:inherit (org-modern-label org-priority) :background ,highlight))
+      (org-modern-statistics (:inherit org-modern-label :background ,highlight))
+      (org-modern-tag (:inherit (org-modern-label org-tag) :background ,highlight))
+      (org-modern-time-active (:inherit org-modern-label :background ,aqua :foreground ,foreground))
+      (org-modern-time-inactive (:inherit (org-modern-label org-modern-date-inactive)))
+      (org-modern-todo (:inherit org-modern-label :background ,red :foreground ,foreground))
 
       ;; Outline (built-in)
       (outline-1 (:inherit nil :foreground ,blue))
