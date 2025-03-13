@@ -38,9 +38,6 @@
 
 ;;     M-x color-theme-sanityinc-tomorrow-day
 ;;     M-x color-theme-sanityinc-tomorrow-night
-;;     M-x color-theme-sanityinc-tomorrow-blue
-;;     M-x color-theme-sanityinc-tomorrow-bright
-;;     M-x color-theme-sanityinc-tomorrow-eighties
 ;;
 ;;; Credit:
 
@@ -138,7 +135,7 @@ executed."
 Also sets background-mode to either `light' or `dark', for use in
 setting `frame-background-mode'.
 
-`MODE' should be set to either `day', `night', `eighties', `blue' or `bright'."
+`MODE' should be set to either `day', `night'."
   `(let* ((colors (or (cdr (assoc ,mode color-theme-sanityinc-tomorrow-colors))
                       (error "no such theme flavor")))
           (background   (cdr (assoc 'background colors)))
@@ -1729,25 +1726,6 @@ names to which it refers are bound."
   "Apply the tomorrow day theme."
   (interactive)
   (color-theme-sanityinc-tomorrow 'day))
-
-;;;###autoload
-(defun color-theme-sanityinc-tomorrow-bright ()
-  "Apply the tomorrow bright theme."
-  (interactive)
-  (color-theme-sanityinc-tomorrow 'bright))
-
-;;;###autoload
-(defun color-theme-sanityinc-tomorrow-eighties ()
-  "Apply the tomorrow eighties theme."
-  (interactive)
-  (color-theme-sanityinc-tomorrow 'eighties))
-
-;;;###autoload
-(defun color-theme-sanityinc-tomorrow-blue ()
-  "Apply the tomorrow blue theme."
-  (interactive)
-  (color-theme-sanityinc-tomorrow 'blue))
-
 
 (provide 'color-theme-sanityinc-tomorrow)
 
