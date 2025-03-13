@@ -257,7 +257,8 @@ names to which it refers are bound."
       (header-line (:inherit mode-line-inactive :foreground ,foam :background unspecified))
 
       ;; search
-      (match (:foreground ,pine :background ,background :inverse-video t))
+      ;; (match (:foreground ,bg-added :background ,leaf))
+      (match (:foreground ,love :background ,contrast-bg))
       (isearch (:foreground ,love :background ,background :inverse-video t))
       (lazy-highlight (:foreground ,foam :background ,background :inverse-video t))
       (isearch-fail (:background ,background :inherit font-lock-warning-face :inverse-video t))
@@ -1677,6 +1678,9 @@ names to which it refers are bound."
       (telega-msg-heading (:background ,background))
       (telega-msg-self-title (:foreground ,gold :weight bold))
       (telega-root-heading (:foreground ,iris :background ,highlight :inherit bold))
+      (telega-mention-count (:inherit bold :foreground ,rose))
+
+      ;; goggles
       ))))
 
 (eval-and-compile
